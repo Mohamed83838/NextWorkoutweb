@@ -1,4 +1,4 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth }  from "../lib/firebase";
 
 
@@ -13,6 +13,18 @@ export async function signInWithGoogle() {
         return user;
     } catch (error) {
         console.error('Error signing in with Google:', error);
+        throw error;
+    }
+}
+
+// Sign out
+export async function signOut() {
+    try {
+        console.log('Signing out...');
+        await auth.signOut();
+        console.log('User signed out');
+    } catch (error) {
+        console.error('Error signing out:', error);
         throw error;
     }
 }
