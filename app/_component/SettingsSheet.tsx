@@ -11,27 +11,13 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet"
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
-import { DeleteIcon, Dumbbell, EllipsisVertical, Eye, EyeIcon, MousePointer, Settings2, SquareMousePointer, Trash } from "lucide-react";
+import { Dumbbell, EllipsisVertical, EyeIcon, Settings2, SquareMousePointer, Trash } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Login, Logout } from "../_methods/auth";
 import { useWorkouts } from "../_methods/UseGetWorkouts";
 import AddWorkout from "./AddWorkout";
 import { DeleteWorkout, SaveWorkout } from "../_methods/workouts";
 import { WorkoutType } from "@/types/WorkoutTypes";
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog";
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from "@/components/ui/accordion"
 import { UseGetUser } from "../_methods/UseGetUser";
 import { DisplayWorkout } from "./DisplayWorkout";
 
@@ -40,7 +26,6 @@ import {
     MenubarContent,
     MenubarItem,
     MenubarMenu,
-    MenubarSeparator,
     MenubarShortcut,
     MenubarTrigger,
 } from "@/components/ui/menubar"
@@ -53,7 +38,7 @@ interface SettingsSheetProbs {
 
 export default function SettingSheet(params: SettingsSheetProbs) {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-    const { user, loadinguser, erroruser, refetchuser } = UseGetUser();
+    const { user, loadinguser, refetchuser } = UseGetUser();
     const [open, setOpen] = useState(false);
     const { workouts, loading, error, refetch } = useWorkouts();
 

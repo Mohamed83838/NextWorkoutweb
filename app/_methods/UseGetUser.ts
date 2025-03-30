@@ -3,13 +3,13 @@ import { useCallback, useEffect, useState } from "react";
 import { GetUser } from "./auth";
 
 interface UseGetUserResult{
-     user: UserType | undefined;
+     user: UserType | null;
       loadinguser: boolean;
       erroruser: string | null;
       refetchuser: () => Promise<void>;
 }
 // Corrected implementation
-export const UseGetUser = () => {
+export const UseGetUser = ():UseGetUserResult => {
     const [user, setUser] = useState<UserType | null>(null);
     const [loadinguser, setLoading] = useState(true);
     const [erroruser, setError] = useState<string | null>(null);

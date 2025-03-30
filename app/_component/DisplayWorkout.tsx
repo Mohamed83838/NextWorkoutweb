@@ -9,7 +9,7 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
+
 interface DisplayWorkoutprobs{
     workout:WorkoutType;
     trigger:React.ReactNode
