@@ -167,7 +167,7 @@ const BigTimer = (props: BigTimerProps) => {
                                     )}
                                 >
                                     <h3>{activityItem.title}</h3>
-                                    <p>{activityItem.duration === 0 ? 'Pass' : `${activityItem.duration}s`}</p>
+                                    <p>{activityItem.duration === 0 ? 'Open' : `${activityItem.duration}s`}</p>
                                 </div>
                             ))}
                     </div>
