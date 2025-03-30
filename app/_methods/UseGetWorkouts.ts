@@ -27,7 +27,7 @@ export const useWorkouts = (): UseWorkoutsResult => {
        
       }else{
         const response = await axios.post(
-          "http://localhost:3000/api/workouts/getall",
+          "http://localhost:3001/api/workouts/getall",
         {},
           {
             headers: { 
@@ -37,7 +37,6 @@ export const useWorkouts = (): UseWorkoutsResult => {
         );
         const data = await response.data;
         const {workouts}=  await data;
-    
         setWorkouts(workouts);
       }
    

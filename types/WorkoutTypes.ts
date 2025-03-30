@@ -1,6 +1,6 @@
 // Workout Plan Type
 
-interface WorkoutItemType {
+export interface WorkoutItemType {
     id: string | null;
     title: string;
     duration: number;

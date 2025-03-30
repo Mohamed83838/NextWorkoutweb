@@ -11,7 +11,8 @@ import {
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 interface DisplayWorkoutprobs{
-    workout:WorkoutType
+    workout:WorkoutType;
+    trigger:React.ReactNode
 }
 
 export function DisplayWorkout(params:DisplayWorkoutprobs) {
@@ -19,7 +20,7 @@ export function DisplayWorkout(params:DisplayWorkoutprobs) {
     return (
         <Dialog open={open} onOpenChange={setOpen}>
   <DialogTrigger asChild>
-    <Button variant="outline">View Workout</Button>
+    {params.trigger}
   </DialogTrigger>
   <DialogContent className="sm:max-w-[425px]">
     <DialogHeader>
@@ -29,7 +30,7 @@ export function DisplayWorkout(params:DisplayWorkoutprobs) {
       </DialogDescription>
     </DialogHeader>
     
-    <div className="space-y-4 max-h-[60vh] overflow-y-auto">
+    <div className="space-y-2 max-h-[60vh] overflow-y-auto">
       {params.workout.workoutplan.map((item, index) => (
         <div 
           key={item.id || `item-${index}`}

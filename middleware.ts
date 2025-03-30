@@ -28,7 +28,7 @@ export async function middleware(request: NextRequest) {
       
     const token= request.headers.get("token") || "";
     const response = await axios.post(
-      "http://192.168.1.3:3000/api/token/verifytoken",
+      "http://localhost:3001/api/token/verifytoken",
       { token: token }, // Request body (data)
       {
         headers: { 
@@ -37,7 +37,7 @@ export async function middleware(request: NextRequest) {
       }
     );
       const {decoded} =await response.data;
-  console.log(decoded)
+ 
       if(decoded !== null){
         const requestHeaders = new Headers(request.headers);
       requestHeaders.set('x-decoded-user', JSON.stringify(decoded));

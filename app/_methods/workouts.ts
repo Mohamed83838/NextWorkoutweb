@@ -5,11 +5,10 @@ import axios from "axios";
 export async function SaveWorkout(workout:WorkoutType) {
     
     try {
-        console.log("helooooooooooo ",workout)
         const token = await GetAuthToken()
       
         const response = await axios.post(
-          "http://localhost:3000/api/workouts/add",
+          "http://localhost:3001/api/workouts/add",
         {workout},
           {
             headers: { 
@@ -26,4 +25,29 @@ export async function SaveWorkout(workout:WorkoutType) {
     } catch (error) {
         return null
     }
+}
+
+export async function DeleteWorkout(workout:WorkoutType) {
+    
+  try {
+      const token = await GetAuthToken()
+    
+      const response = await axios.post(
+        "http://localhost:3001/api/workouts/remove",
+      {workout},
+        {
+          headers: { 
+            "token":token
+          }
+        }
+      );
+
+  if (response.status !== 201){
+      return null
+  }
+
+      return true
+  } catch (error) {
+      return null
+  }
 }
