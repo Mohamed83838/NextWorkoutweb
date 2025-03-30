@@ -8,7 +8,7 @@ export async function SaveWorkout(workout:WorkoutType) {
         const token = await GetAuthToken()
       
         const response = await axios.post(
-          "http://localhost:3001/api/workouts/add",
+          "https://next-workoutweb-pf4p.vercel.app/api/workouts/add",
         {workout},
           {
             headers: { 
@@ -34,7 +34,7 @@ export async function DeleteWorkout(workout:WorkoutType) {
       const token = await GetAuthToken()
     
       const response = await axios.post(
-        "http://localhost:3001/api/workouts/remove",
+        "https://next-workoutweb-pf4p.vercel.app/api/workouts/remove",
       {workout},
         {
           headers: { 

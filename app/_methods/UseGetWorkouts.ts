@@ -27,7 +27,7 @@ export const useWorkouts = (): UseWorkoutsResult => {
        
       }else{
         const response = await axios.post(
-          "http://localhost:3001/api/workouts/getall",
+          "https://next-workoutweb-pf4p.vercel.app/api/workouts/getall",
         {},
           {
             headers: { 

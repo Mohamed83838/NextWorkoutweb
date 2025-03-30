@@ -28,7 +28,7 @@ export async function middleware(request: NextRequest) {
       
     const token= request.headers.get("token") || "";
     const response = await axios.post(
-      "http://localhost:3001/api/token/verifytoken",
+      "https://next-workoutweb-pf4p.vercel.app/api/token/verifytoken",
       { token: token }, // Request body (data)
       {
         headers: { 

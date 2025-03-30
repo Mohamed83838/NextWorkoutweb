@@ -13,7 +13,7 @@ export async function Login() {
         role:"user"
       } 
      await axios.post(
-        "http://localhost:3001/api/cookies/createauthcookie",
+        "https://next-workoutweb-pf4p.vercel.app/api/cookies/createauthcookie",
         { user: user }, // Request body
         {
           headers: {
@@ -31,7 +31,7 @@ export async function Login() {
 export async function GetAuthToken() {
   try {
 
-    const response = await axios.get("http://localhost:3001/api/cookies/verifyauthcookie");
+    const response = await axios.get("https://next-workoutweb-pf4p.vercel.app/api/cookies/verifyauthcookie");
     const { isAuthenticated, token } = response.data;
     return isAuthenticated ? token : null;
 
@@ -43,7 +43,7 @@ export async function GetAuthToken() {
 export async function GetUser() {
   try {
 
-    const response = await axios.get("http://localhost:3001/api/cookies/verifyauthcookie");
+    const response = await axios.get("https://next-workoutweb-pf4p.vercel.app/api/cookies/verifyauthcookie");
     const { isAuthenticated,user } = response.data;
     return isAuthenticated ? user : null;
 
@@ -55,7 +55,7 @@ export async function GetUser() {
 export async function Logout() {
   try {
 
-    const response = await axios.get("http://localhost:3001/api/cookies/removeauthcookie");
+    const response = await axios.get("https://next-workoutweb-pf4p.vercel.app/api/cookies/removeauthcookie");
     if(response.status===202){
       return true;
 
