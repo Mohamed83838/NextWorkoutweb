@@ -1,4 +1,4 @@
-import { getWorkout, getWorkouts } from "@/services/firestore";
+import { getWorkout } from "@/services/firestore";
 import { NextRequest,NextResponse } from "next/server";
 
 export async function POST(request:NextRequest) {

@@ -25,7 +25,7 @@ export const UseGetUser = ():UseGetUserResult => {
           setUser(fetcheduser);
         }
       } catch (error) {
-        setError("Authentication error");
+        setError(`authentification error ${error}`);
       } finally {
         setLoading(false);
       }

@@ -5,7 +5,6 @@ import { playSound } from '../_methods/playSound';
 
 interface BigTimerProps {
     workout: WorkoutType,
-    isdesktop:boolean
 }
 
 const BigTimer = (props: BigTimerProps) => {

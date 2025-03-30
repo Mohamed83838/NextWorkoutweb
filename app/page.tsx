@@ -1,8 +1,7 @@
 "use client"
 import AppBar from "./_component/AppBar";
 import { useEffect, useState } from "react";
-import { useWindowSize } from 'react-use';
-import { GetAuthToken, Login } from "./_methods/auth";
+import { GetAuthToken } from "./_methods/auth";
 import BigTimer from "./_component/TimerScreen";
 import { WorkoutType } from "@/types/WorkoutTypes";
 
@@ -31,19 +30,13 @@ export default function Home() {
     async function checkAuth() {
       const token = await GetAuthToken();
       setIslogged(token !== null); // Set true if token exists
-      setIsmobile(width < 700)
 
 
     }
     checkAuth();
   }, []);
 
-
-
-
-  const { width } = useWindowSize();
   const [islogged, setIslogged] = useState(false);
-  const [ismobile, setIsmobile] = useState(false);
 
   // Callback function to update parent state
   const handleAppBarAction = (newValue: boolean) => {
@@ -55,8 +48,8 @@ export default function Home() {
   return (
     <main className="flex flex-col w-screen h-screen bg-black select-none">
 
-      <AppBar islogged={islogged} ismobile={ismobile} onStateChange={handleAppBarAction} onWorkoutChange={onworkoutchange} />
-      <BigTimer workout={Workout} key={`${Workout.id}-${version}`} isdesktop={!ismobile}/>
+      <AppBar islogged={islogged} onStateChange={handleAppBarAction} onWorkoutChange={onworkoutchange} />
+      <BigTimer workout={Workout} key={`${Workout.id}-${version}`}/>
     </main>
   );
 }

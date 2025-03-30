@@ -9,7 +9,7 @@ export  async function POST(request:NextRequest){
             return NextResponse.json({ message: "an error occured" }, { status: 2 })
         }
         const user = JSON.parse(decoded_user);
-        var {workout}  = await request.json()
+        const {workout}  = await request.json()
         console.log(workout)
        const id = await addWorkout( user,workout)
        if (id===null){

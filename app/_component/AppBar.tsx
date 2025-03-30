@@ -12,7 +12,6 @@ import SettingSheet from "./SettingsSheet";
 
 interface AppBarProps {
     islogged: boolean;
-    ismobile: boolean;
     onStateChange: (newValue: boolean) => void;
     onWorkoutChange: (newValue: WorkoutType) => void;
 }
@@ -23,10 +22,10 @@ export default function AppBar(probs: AppBarProps) {
         title: "default Workout",
         workoutplan: [
             {
-                id:"0",
-                title:"Jumping Jacks",
-                duration:10
-               }
+                id: "0",
+                title: "Jumping Jacks",
+                duration: 10
+            }
         ]
     });
 
@@ -39,8 +38,6 @@ export default function AppBar(probs: AppBarProps) {
         setWorkout(workoutt);
     };
 
-    const isDesktop = !probs.ismobile;
-
     return (
         <div className="w-full p-2 sm:p-4 justify-between items-center flex flex-row font-sans">
             <div className="flex flex-row gap-2 items-center">
@@ -49,7 +46,7 @@ export default function AppBar(probs: AppBarProps) {
 
             <div className="flex flex-row gap-x-1 items-center">
                 {!probs.islogged && (
-                    <Button 
+                    <Button
                         className="hover:bg-gray-400 bg-white text-black"
                         onClick={async () => {
                             const loggedIn = await Login();
@@ -63,20 +60,20 @@ export default function AppBar(probs: AppBarProps) {
 
                 {probs.islogged ? (
                     workout.id === "-1" ? (
-                        <AlertDalog 
-                            title="Current Workout" 
-                            description="You didn't choose any current workout. Choose one or create one from settings" 
-                            button="Close" 
+                        <AlertDalog
+                            title="Current Workout"
+                            description="You didn't choose any current workout. Choose one or create one from settings"
+                            button="Close"
                         />
                     ) : (
-                        <DisplayWorkout workout={workout} trigger={<Button className="bg-white hover:cursor-pointer text-black hover:bg-gray-400">Workout</Button>}/>
+                        <DisplayWorkout workout={workout} trigger={<Button className="bg-white hover:cursor-pointer text-black hover:bg-gray-400">Workout</Button>} />
                     )
-                ) : !probs.islogged &&(
-                    <AddWorkout 
-                        getworkout={handlecomingeworkout} 
-                        button="Workout" 
-                        islogged={probs.islogged} 
-                        workout={workout} 
+                ) : !probs.islogged && (
+                    <AddWorkout
+                        getworkout={handlecomingeworkout}
+                        button="Workout"
+                        islogged={probs.islogged}
+                        workout={workout}
                         trigger={
                             <Button variant="default" className="bg-white text-black hover:bg-gray-400">
                                 Workout
@@ -85,9 +82,9 @@ export default function AppBar(probs: AppBarProps) {
                     />
                 )}
 
-                <SettingSheet 
-                    onstateChange={probs.onStateChange} 
-                    islogged={probs.islogged} 
+                <SettingSheet
+                    onstateChange={probs.onStateChange}
+                    islogged={probs.islogged}
                     onselectworkout={handlecomingeworkout}
                 />
             </div>

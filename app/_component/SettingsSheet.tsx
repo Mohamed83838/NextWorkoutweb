@@ -37,9 +37,8 @@ interface SettingsSheetProbs {
 }
 
 export default function SettingSheet(params: SettingsSheetProbs) {
-    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const [_isDrawerOpen, setIsDrawerOpen] = useState(false);
     const { user, loadinguser, refetchuser } = UseGetUser();
-    const [open, setOpen] = useState(false);
     const { workouts, loading, error, refetch } = useWorkouts();
 
     const deleteWorkout = async (delworkout: WorkoutType) => {

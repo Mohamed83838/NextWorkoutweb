@@ -12,7 +12,7 @@ export async function Login() {
         email:googleuser.email || "",
         role:"user"
       } 
-      const response = await axios.post(
+     await axios.post(
         "http://localhost:3001/api/cookies/createauthcookie",
         { user: user }, // Request body
         {

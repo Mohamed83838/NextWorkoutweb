@@ -15,6 +15,6 @@ export async function POST (request:NextRequest){
         }
         return NextResponse.json({message:"updated successfully"},{status:202})
     } catch (error) {
-        return NextResponse.json({message:"Internal error occured"},{status:501})
+        return NextResponse.json({message:"Internal error occured",error},{status:501})
     }
 }

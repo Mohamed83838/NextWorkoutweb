@@ -23,6 +23,7 @@ export async function SaveWorkout(workout:WorkoutType) {
   
         return true
     } catch (error) {
+console.log(error)
         return null
     }
 }
@@ -48,6 +49,7 @@ export async function DeleteWorkout(workout:WorkoutType) {
 
       return true
   } catch (error) {
+    console.log(error)
       return null
   }
 }
