@@ -95,7 +95,7 @@ export default function SettingSheet(params: SettingsSheetProbs) {
                         <div className="flex flex-col gap-y-2 w-full ">
                             <h1 className="text-xl font-medium h-full w-full items-center justify-center">Workouts:</h1>
                             {loading ? (
-                                <div className=" absolute self-center">Loading workouts...</div>
+                                <div className=" absolute top-32 justify-center items-center">Loading workouts...</div>
                             ) : error ? (
                                 <Button onClick={() => { }}> Refrech</Button>
                             ) : workouts?.length === 0 ? (
